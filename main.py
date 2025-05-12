@@ -37,10 +37,10 @@ def main():
             if thing.has_collision(player1):
                 print("Game over!")
                 sys.exit()
-        for thing in asteroids:
+        for rock in asteroids:
             for bullet in bullets:
-                if thing.has_collision(bullet):
-                    thing.kill()
+                if rock.has_collision(bullet):
+                    rock.split()
                     bullet.kill()
 
         pygame.display.flip()

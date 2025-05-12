@@ -3,6 +3,7 @@ from constants import *
 import player
 import asteroid
 import asteroidfield
+import sys
 
 def main():
     clock = pygame.time.Clock()
@@ -25,6 +26,11 @@ def main():
         pygame.Surface.fill(screen, (0, 0, 0))
         for thing in drawable:
             thing.draw(screen)
+        for thing in asteroids:
+            if thing.has_collision(player1):
+                print("Game over!")
+                sys.exit()
+
         pygame.display.flip()
         dt = clock.tick(144) / 1000
 
